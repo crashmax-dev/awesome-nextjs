@@ -9,7 +9,7 @@ $ npm install
 $ npm run dev
 ```
 
-## Using
+## Built Using
 
 - [Next.js](https://nextjs.org)
 - [VechaiUI](https://vechaiui.com)
