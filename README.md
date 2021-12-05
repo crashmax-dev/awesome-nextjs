@@ -13,6 +13,7 @@ $ npm run dev
 
 - [Next.js](https://nextjs.org)
 - [VechaiUI](https://vechaiui.com)
+- [HeadlessUI](https://headlessui.dev)
 - [TailwindCSS](https://tailwindcss.com)
 - [Heroicons](https://heroicons.com)
 - [SWR](https://swr.vercel.app)
