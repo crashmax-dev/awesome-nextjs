@@ -4,7 +4,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext ts --ext tsx --ext js"
+    "lint": "eslint . --ext ts --ext tsx"
   },
   "dependencies": {
     "@heroicons/react": "^1.0.5",
@@ -18,7 +18,7 @@
     "tailwindcss": "^2.2.19"
   },
   "devDependencies": {
-    "@crashmax/eslint-config": "^1.0.2",
+    "@crashmax/eslint-config": "^1.0.3",
     "@types/react": "^17.0.37",
     "autoprefixer": "^10.4.0",
     "eslint-plugin-react": "^7.27.1",
