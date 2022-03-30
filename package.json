@@ -8,21 +8,21 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.5.0",
-    "@heroicons/react": "^1.0.5",
+    "@heroicons/react": "^1.0.6",
     "@tailwindcss/forms": "^0.3.4",
     "@vechaiui/core": "^0.6.0",
-    "@vechaiui/react": "^0.2.1",
-    "next": "^12.1.0",
+    "@vechaiui/react": "^0.2.2",
+    "next": "^12.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "swr": "^1.2.2"
   },
   "devDependencies": {
-    "@crashmax/eslint-config": "^1.0.4",
-    "@types/react": "^17.0.39",
-    "autoprefixer": "^10.4.2",
-    "eslint-plugin-react": "^7.29.2",
-    "postcss": "^8.4.7",
-    "typescript": "^4.6.2"
+    "@crashmax/eslint-config": "^1.1.0",
+    "@types/react": "^17.0.43",
+    "autoprefixer": "^10.4.4",
+    "eslint-plugin-react": "^7.29.4",
+    "postcss": "^8.4.12",
+    "typescript": "^4.6.3"
   }
 }
