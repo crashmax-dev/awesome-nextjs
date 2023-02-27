@@ -7,6 +7,10 @@ import {
   MantineProvider
 } from '@mantine/core'
 import { getCookie, setCookie } from 'cookies-next'
+import { reatomContext as Reatom } from '@reatom/npm-react'
+import { createCtx } from '@reatom/core'
+
+const ctx = createCtx()
 
 interface Props extends AppProps {
   colorScheme: ColorScheme
@@ -41,7 +45,9 @@ export default function App(props: Props) {
           withGlobalStyles
           withNormalizeCSS
         >
-          <Component {...pageProps} />
+          <Reatom.Provider value={ctx}>
+            <Component {...pageProps} />
+          </Reatom.Provider>
         </MantineProvider>
       </ColorSchemeProvider>
     </>

@@ -7,6 +7,9 @@ specifiers:
   '@mantine/core': 5.10.5
   '@mantine/hooks': 5.10.5
   '@mantine/next': 5.10.5
+  '@reatom/async': 3.2.2
+  '@reatom/core': 3.1.23
+  '@reatom/npm-react': ^3.2.0
   '@tabler/icons': 1.119.0
   '@types/node': 18.14.2
   '@types/react': 18.0.28
@@ -22,6 +25,9 @@ dependencies:
   '@mantine/core': 5.10.5_zrh3qbywp4klzxzvocxisz6a5a
   '@mantine/hooks': 5.10.5_react@18.2.0
   '@mantine/next': 5.10.5_pgglsq75fvw45j476lnzqmxl6q
+  '@reatom/async': 3.2.2
+  '@reatom/core': 3.1.23
+  '@reatom/npm-react': 3.2.0_react@18.2.0
   '@tabler/icons': 1.119.0_biqbaboplfbrettd7655fr4n2y
   cookies-next: 2.1.1
   next: 13.2.1_6m24vuloj5ihw4zc5lbsktc4fu
@@ -750,6 +756,63 @@ packages:
     dependencies:
       '@babel/runtime': 7.21.0
       react: 18.2.0
+    dev: false
+
+  /@reatom/async/3.2.2:
+    resolution: {integrity: sha512-rCrz2oO8kkDyxSFqBS3kVC4ijUKgORkJZkhXRcVAiJj8QwoP9P88EI+g6zfLsd8tJQ6K8CWZtdLeXXOt0MO2Og==}
+    dependencies:
+      '@reatom/core': 3.1.23
+      '@reatom/effects': 3.1.2
+      '@reatom/hooks': 3.1.5
+      '@reatom/primitives': 3.1.4
+    dev: false
+
+  /@reatom/core/3.1.23:
+    resolution: {integrity: sha512-2KlAVT6uxsZ9tm1DSPujzqMgPwiibEo+yR98+fKI1hgDE47VrzgSsfAd27c1Jo/hu+2EA1RefICeSSCaRKpTkw==}
+    dev: false
+
+  /@reatom/effects/3.1.2:
+    resolution: {integrity: sha512-f+DQRgmkbbcc1nChDYlID6sj/nI4gCjAWTypf0WZaxKKAiunsJaLXQq961xfA7xcm1W+4X+HcYTWdtkiyjK05Q==}
+    dependencies:
+      '@reatom/core': 3.1.23
+    dev: false
+
+  /@reatom/hooks/3.1.5:
+    resolution: {integrity: sha512-DHaybogKBaidMuy3Sq6t/gff7wBn5ncUjQABuuRZAt/8TH2gBPVC5VGmOFp9eWpe/YHy90MaIltI84SdafqJ9A==}
+    dependencies:
+      '@reatom/core': 3.1.23
+    dev: false
+
+  /@reatom/lens/3.1.12:
+    resolution: {integrity: sha512-6H7imdI7qT4NtncFUX2X85tI7r/Ep6C5VhyHA4fzAX29p+Z8B2H8Rjhy7aYqKPWKss0qKYL/Fy0BsetYDRmmHw==}
+    dependencies:
+      '@reatom/core': 3.1.23
+      '@reatom/effects': 3.1.2
+      '@reatom/utils': 3.1.7
+    dev: false
+
+  /@reatom/npm-react/3.2.0_react@18.2.0:
+    resolution: {integrity: sha512-daJzMncn7paE1cJ0BRYXEjeq9SBJjfjsVsAalcBOXiFLzPmoSdt4KHieAlSaGxOE1JCoIiOySHQAdjh/Jy227g==}
+    peerDependencies:
+      react: '>=16.8.0'
+    dependencies:
+      '@reatom/core': 3.1.23
+      '@reatom/lens': 3.1.12
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
+
+  /@reatom/primitives/3.1.4:
+    resolution: {integrity: sha512-rSTMT50noYPt5BkFd4iJl9NdrDb52LWigyXxW48qm0mFVI7QCEIlYalD28a0K41OSRinm2Kbp2n3usM4duEj3A==}
+    dependencies:
+      '@reatom/core': 3.1.23
+      '@reatom/utils': 3.1.7
+    dev: false
+
+  /@reatom/utils/3.1.7:
+    resolution: {integrity: sha512-fOZyS8uYblf58oYtd9Q18mn2D6oOfvBuHk0GBqmQftV0x9AwBuEKi/14wuHJ8Hipjf6Ziu8aa3QmEk6K93o1Og==}
+    dependencies:
+      '@reatom/core': 3.1.23
     dev: false
 
   /@swc/helpers/0.4.14:
@@ -1510,6 +1573,14 @@ packages:
       '@types/react': 18.0.28
       react: 18.2.0
       use-isomorphic-layout-effect: 1.1.2_pmekkgnqduwlme35zpnqhenc34
+    dev: false
+
+  /use-sync-external-store/1.2.0_react@18.2.0:
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /util-deprecate/1.0.2:
