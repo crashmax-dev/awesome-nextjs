@@ -1,5 +1,10 @@
-import { Counter } from "@/features/counter";
+import { Layout } from '@/components/Layout'
+import { Counter } from '@/features/counter'
 
 export default function CounterRoute() {
-  return <Counter />
+  return (
+    <Layout>
+      <Counter />
+    </Layout>
+  )
 }

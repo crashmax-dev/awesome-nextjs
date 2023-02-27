@@ -1,7 +1,7 @@
-import { PropsWithChildren } from 'react'
 import { ActionIcon } from '@mantine/core'
 import useStyles from './ActionButton.styles'
 import type { ActionIconProps } from '@mantine/core'
+import type { PropsWithChildren } from 'react'
 
 type Props = PropsWithChildren<
   ActionIconProps & React.HTMLAttributes<HTMLButtonElement>

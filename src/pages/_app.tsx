@@ -6,11 +6,13 @@ import {
   ColorSchemeProvider,
   MantineProvider
 } from '@mantine/core'
-import { getCookie, setCookie } from 'cookies-next'
-import { reatomContext as Reatom } from '@reatom/npm-react'
 import { createCtx } from '@reatom/core'
+import { connectLogger } from '@reatom/framework'
+import { reatomContext as Reatom } from '@reatom/npm-react'
+import { getCookie, setCookie } from 'cookies-next'
 
 const ctx = createCtx()
+connectLogger(ctx)
 
 interface Props extends AppProps {
   colorScheme: ColorScheme

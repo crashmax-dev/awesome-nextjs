@@ -7,9 +7,8 @@ specifiers:
   '@mantine/core': 5.10.5
   '@mantine/hooks': 5.10.5
   '@mantine/next': 5.10.5
-  '@reatom/async': 3.2.2
-  '@reatom/core': 3.1.23
-  '@reatom/npm-react': ^3.2.0
+  '@reatom/framework': 3.1.30
+  '@reatom/npm-react': 3.2.0
   '@tabler/icons': 1.119.0
   '@types/node': 18.14.2
   '@types/react': 18.0.28
@@ -25,8 +24,7 @@ dependencies:
   '@mantine/core': 5.10.5_zrh3qbywp4klzxzvocxisz6a5a
   '@mantine/hooks': 5.10.5_react@18.2.0
   '@mantine/next': 5.10.5_pgglsq75fvw45j476lnzqmxl6q
-  '@reatom/async': 3.2.2
-  '@reatom/core': 3.1.23
+  '@reatom/framework': 3.1.30
   '@reatom/npm-react': 3.2.0_react@18.2.0
   '@tabler/icons': 1.119.0_biqbaboplfbrettd7655fr4n2y
   cookies-next: 2.1.1
@@ -777,6 +775,19 @@ packages:
       '@reatom/core': 3.1.23
     dev: false
 
+  /@reatom/framework/3.1.30:
+    resolution: {integrity: sha512-GghZizdMI5Warm9VsSN5fsBldCkmErWOTX4Bv8XlrMS9a4P4cYbW5BNrI8eZVejjUrCKCVWZhtb5KPKdKnrS/g==}
+    dependencies:
+      '@reatom/async': 3.2.2
+      '@reatom/core': 3.1.23
+      '@reatom/effects': 3.1.2
+      '@reatom/hooks': 3.1.5
+      '@reatom/lens': 3.1.12
+      '@reatom/logger': 3.1.9
+      '@reatom/primitives': 3.1.4
+      '@reatom/utils': 3.1.7
+    dev: false
+
   /@reatom/hooks/3.1.5:
     resolution: {integrity: sha512-DHaybogKBaidMuy3Sq6t/gff7wBn5ncUjQABuuRZAt/8TH2gBPVC5VGmOFp9eWpe/YHy90MaIltI84SdafqJ9A==}
     dependencies:
@@ -789,6 +800,12 @@ packages:
       '@reatom/core': 3.1.23
       '@reatom/effects': 3.1.2
       '@reatom/utils': 3.1.7
+    dev: false
+
+  /@reatom/logger/3.1.9:
+    resolution: {integrity: sha512-YMm8wV5dNb8hDrVWTEoOXZg2L5WBpQFij+fRT/0s7zuJAaFI2ZfXYegEUrxsWoefBn7NbZBBjvpbDkUV28/hvg==}
+    dependencies:
+      '@reatom/core': 3.1.23
     dev: false
 
   /@reatom/npm-react/3.2.0_react@18.2.0:

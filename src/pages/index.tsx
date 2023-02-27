@@ -1,19 +1,10 @@
-import { Box, Group } from '@mantine/core'
-import { ColorSchemeToggle } from '@/components/ColorSchemeToggle'
-import { LocaleToggle } from '@/components/LocaleToggle'
+import { Layout } from '@/components/Layout'
 import { Welcome } from '@/components/Welcome'
 
 export default function IndexRoute() {
   return (
-    <Box>
+    <Layout>
       <Welcome />
-      <Group
-        position="center"
-        mt="xl"
-      >
-        <ColorSchemeToggle />
-        <LocaleToggle />
-      </Group>
-    </Box>
+    </Layout>
   )
 }
