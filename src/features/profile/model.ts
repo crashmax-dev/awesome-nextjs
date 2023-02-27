@@ -27,8 +27,8 @@ export const fetchProfile = reatomAsync(
     ),
   'fetchProfile'
 ).pipe(
-  withDataAtom(null, (ctx, data) => data),
   // withCache(), // RangeError: Maximum call stack size exceeded
+  withDataAtom(null, (ctx, data) => data),
   withAbort()
 )
 onConnect(fetchProfile.dataAtom, fetchProfile)
