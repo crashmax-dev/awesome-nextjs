@@ -1,4 +1,4 @@
-import { action, atom } from '@reatom/core'
+import { action, atom } from '@reatom/framework'
 
 export const counterAtom = atom(0, 'counterAtom')
 
