@@ -8,7 +8,6 @@ export function Welcome() {
     <Title
       className={classes.title}
       align="center"
-      mt={100}
     >
       Welcome to{' '}
       <Text

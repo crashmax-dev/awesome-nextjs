@@ -16,7 +16,9 @@ export function Profile() {
       align="center"
       direction="column"
     >
-      <pre>{JSON.stringify(profile, null, 2)}</pre>
+      <pre style={{ fontSize: '14px', whiteSpace: 'pre-wrap' }}>
+        {JSON.stringify(profile, null, 2)}
+      </pre>
       {isLoading ? (
         <Text>Loading...</Text>
       ) : (
