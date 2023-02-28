@@ -12,7 +12,7 @@ specifiers:
   '@mantine/hooks': 5.10.5
   '@mantine/next': 5.10.5
   '@reatom/framework': 3.1.30
-  '@reatom/npm-react': 3.2.0
+  '@reatom/npm-react': 3.3.1
   '@tabler/icons': 1.119.0
   '@types/node': 18.14.2
   '@types/react': 18.0.28
@@ -32,7 +32,7 @@ dependencies:
   '@mantine/hooks': 5.10.5_react@18.2.0
   '@mantine/next': 5.10.5_pgglsq75fvw45j476lnzqmxl6q
   '@reatom/framework': 3.1.30
-  '@reatom/npm-react': 3.2.0_react@18.2.0
+  '@reatom/npm-react': 3.3.1_react@18.2.0
   '@tabler/icons': 1.119.0_biqbaboplfbrettd7655fr4n2y
   next: 13.2.1_6m24vuloj5ihw4zc5lbsktc4fu
   react: 18.2.0
@@ -844,8 +844,8 @@ packages:
       '@reatom/core': 3.1.23
     dev: false
 
-  /@reatom/npm-react/3.2.0_react@18.2.0:
-    resolution: {integrity: sha512-daJzMncn7paE1cJ0BRYXEjeq9SBJjfjsVsAalcBOXiFLzPmoSdt4KHieAlSaGxOE1JCoIiOySHQAdjh/Jy227g==}
+  /@reatom/npm-react/3.3.1_react@18.2.0:
+    resolution: {integrity: sha512-elAHEP0cqLSHWOi3o9XMQhg5aGxzInbKn9ojBCSce1eOxvPB88znT6AdYoV1+amyHP9VTprsLzO8q64op4XzfQ==}
     peerDependencies:
       react: '>=16.8.0'
     dependencies:
@@ -946,7 +946,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001458
-      electron-to-chromium: 1.4.311
+      electron-to-chromium: 1.4.313
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
 
@@ -1056,8 +1056,8 @@ packages:
       readable-stream: 2.3.8
     dev: false
 
-  /electron-to-chromium/1.4.311:
-    resolution: {integrity: sha512-RoDlZufvrtr2Nx3Yx5MB8jX3aHIxm8nRWPJm3yVvyHmyKaRvn90RjzB6hNnt0AkhS3IInJdyRfQb4mWhPvUjVw==}
+  /electron-to-chromium/1.4.313:
+    resolution: {integrity: sha512-QckB9OVqr2oybjIrbMI99uF+b9+iTja5weFe0ePbqLb5BHqXOJUO1SG6kDj/1WtWPRIBr51N153AEq8m7HuIaA==}
 
   /entities/2.2.0:
     resolution: {integrity: sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==}

@@ -13,8 +13,8 @@ import {
 import { isServer } from '@/utils/is-server'
 import type { AppContext, AppProps } from 'next/app'
 
-const ctx = createCtx()
-connectLogger(ctx)
+const reatomContext = createCtx()
+connectLogger(reatomContext)
 
 interface Props extends AppProps {
   cookieContext: ReturnType<typeof createCookieServer>
@@ -39,11 +39,11 @@ export default function App(props: Props) {
       </Head>
 
       <CookieProvider value={cookieContext}>
-        <ColorSchemeProvider>
-          <Reatom.Provider value={ctx}>
+        <Reatom.Provider value={reatomContext}>
+          <ColorSchemeProvider>
             <Component {...pageProps} />
-          </Reatom.Provider>
-        </ColorSchemeProvider>
+          </ColorSchemeProvider>
+        </Reatom.Provider>
       </CookieProvider>
     </>
   )

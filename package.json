@@ -18,7 +18,7 @@
     "@mantine/hooks": "5.10.5",
     "@mantine/next": "5.10.5",
     "@reatom/framework": "3.1.30",
-    "@reatom/npm-react": "3.2.0",
+    "@reatom/npm-react": "3.3.1",
     "@tabler/icons": "1.119.0",
     "next": "13.2.1",
     "react": "18.2.0",
