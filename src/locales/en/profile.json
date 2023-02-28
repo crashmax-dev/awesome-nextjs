@@ -1,0 +1,7 @@
+{
+  "loading": "Loading...",
+  "loaded": "Loaded {lastRequestTime}ms",
+  "reset": "Reset",
+  "previous": "Previous",
+  "next": "Next"
+}

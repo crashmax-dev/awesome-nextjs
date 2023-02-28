@@ -1,3 +1,4 @@
+import { NextIntlProvider } from 'next-intl'
 import NextApp from 'next/app'
 import Head from 'next/head'
 import { useMemo } from 'react'
@@ -16,7 +17,11 @@ import type { AppContext, AppProps } from 'next/app'
 const reatomContext = createCtx()
 connectLogger(reatomContext)
 
-interface Props extends AppProps {
+interface PageProps {
+  i18n: IntlMessages
+}
+
+interface Props extends AppProps<PageProps> {
   cookieContext: ReturnType<typeof createCookieServer>
 }
 
@@ -40,9 +45,11 @@ export default function App(props: Props) {
 
       <CookieProvider value={cookieContext}>
         <Reatom.Provider value={reatomContext}>
-          <ColorSchemeProvider>
-            <Component {...pageProps} />
-          </ColorSchemeProvider>
+          <NextIntlProvider messages={pageProps.i18n}>
+            <ColorSchemeProvider>
+              <Component {...pageProps} />
+            </ColorSchemeProvider>
+          </NextIntlProvider>
         </Reatom.Provider>
       </CookieProvider>
     </>
@@ -56,8 +63,8 @@ App.getInitialProps = async (appContext: AppContext) => {
     const req = appContext.ctx.req!
     const res = appContext.ctx.res!
     const cookieContext = createCookieServer({ req, res })
-    return { pageProps, cookieContext }
+    return { ...pageProps, cookieContext }
   }
 
-  return { pageProps }
+  return { ...pageProps }
 }
