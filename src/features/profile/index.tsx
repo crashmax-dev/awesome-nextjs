@@ -7,6 +7,7 @@ export function Profile() {
   const [profile] = useAtom(fetchProfile.dataAtom)
   const [isLoading] = useAtom(fetchProfile.pendingAtom)
   const [page] = useAtom(profileIdAtom)
+  const reset = useAction(profileIdAtom.reset)
   const prev = useAction(profileIdAtom.prev)
   const next = useAction(profileIdAtom.next)
 
@@ -24,6 +25,7 @@ export function Profile() {
         </Text>
       )}
       <Group>
+        <Button onClick={() => reset()}>Reset</Button>
         <Button onClick={() => prev()}>Prev</Button>
         <Button onClick={() => next()}>Next</Button>
       </Group>

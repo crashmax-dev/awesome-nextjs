@@ -1,6 +1,10 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@cookie-baker/browser': 0.2.1
+  '@cookie-baker/core': 0.2.1
+  '@cookie-baker/node': 0.2.1
+  '@cookie-baker/react': 0.2.1
   '@crashmax/prettier-config': 3.1.0
   '@emotion/react': 11.10.6
   '@emotion/server': 11.10.0
@@ -12,13 +16,16 @@ specifiers:
   '@tabler/icons': 1.119.0
   '@types/node': 18.14.2
   '@types/react': 18.0.28
-  cookies-next: 2.1.1
   next: 13.2.1
   react: 18.2.0
   react-dom: 18.2.0
   typescript: 4.9.5
 
 dependencies:
+  '@cookie-baker/browser': 0.2.1_@cookie-baker+core@0.2.1
+  '@cookie-baker/core': 0.2.1
+  '@cookie-baker/node': 0.2.1_@cookie-baker+core@0.2.1
+  '@cookie-baker/react': 0.2.1_xjh4bzwbsmeilxvjufq6zoeqni
   '@emotion/react': 11.10.6_pmekkgnqduwlme35zpnqhenc34
   '@emotion/server': 11.10.0
   '@mantine/core': 5.10.5_zrh3qbywp4klzxzvocxisz6a5a
@@ -27,7 +34,6 @@ dependencies:
   '@reatom/framework': 3.1.30
   '@reatom/npm-react': 3.2.0_react@18.2.0
   '@tabler/icons': 1.119.0_biqbaboplfbrettd7655fr4n2y
-  cookies-next: 2.1.1
   next: 13.2.1_6m24vuloj5ihw4zc5lbsktc4fu
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -233,6 +239,36 @@ packages:
       '@babel/helper-string-parser': 7.19.4
       '@babel/helper-validator-identifier': 7.19.1
       to-fast-properties: 2.0.0
+
+  /@cookie-baker/browser/0.2.1_@cookie-baker+core@0.2.1:
+    resolution: {integrity: sha512-Bd23vBa2SAx3NhK+NHwHqNIWlAIJ+Vidu6aUfB4VtUyLmV4rl3ZQdNuYviTdF4NnmQmjGjioY7OGmWJlPaa+Yg==}
+    peerDependencies:
+      '@cookie-baker/core': 0.2.1
+    dependencies:
+      '@cookie-baker/core': 0.2.1
+    dev: false
+
+  /@cookie-baker/core/0.2.1:
+    resolution: {integrity: sha512-eDErSwB9MSoF5vFkbP3A4YFkBlAgw5pD7ru7z+OADYAet5P4GUakCJ2LtloBq6ekRP9ayn6NmYNPcXGgTtUIKA==}
+    dev: false
+
+  /@cookie-baker/node/0.2.1_@cookie-baker+core@0.2.1:
+    resolution: {integrity: sha512-1yW/rZYHmCBBE+EXyfBFlb9xaOGIg/WuWXDLf8E9RftkWW7kLR5gLsivr5vNEYXWs/F5sKZ/RoTRpRMgSWO9kg==}
+    peerDependencies:
+      '@cookie-baker/core': 0.2.1
+    dependencies:
+      '@cookie-baker/core': 0.2.1
+    dev: false
+
+  /@cookie-baker/react/0.2.1_xjh4bzwbsmeilxvjufq6zoeqni:
+    resolution: {integrity: sha512-G4vcMKhCWewQNqhmG7VOkYZR422uovC/vsb/rR8jQeBLokbUBaHCwKVeUvd/+rBA8lYTC7KRgR/xjYoGi7ob2w==}
+    peerDependencies:
+      '@cookie-baker/core': 0.2.1
+      react: '>=16.8'
+    dependencies:
+      '@cookie-baker/core': 0.2.1
+      react: 18.2.0
+    dev: false
 
   /@crashmax/prettier-config/3.1.0_za6dmrbiogn3z6m2plsv3qsi6m:
     resolution: {integrity: sha512-50o62qqaAk17W/nYqsyEnu6bkZMBRdyM2hKytMi8tJnwHxrpfWvNcINTc/Tc/7FQlIXkTSHEMZmKaSQFcXVXsw==}
@@ -853,14 +889,6 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@types/cookie/0.4.1:
-    resolution: {integrity: sha512-XW/Aa8APYr6jSVVA1y/DEIZX0/GMKLEVekNG727R8cs56ahETkRAy/3DR7+fJyh7oUgGwNQaRfXCun0+KbWY7Q==}
-    dev: false
-
-  /@types/node/16.18.13:
-    resolution: {integrity: sha512-l0/3XZ153UTlNOnZK8xSNoJlQda9/WnYgiTdcKKPJSZjdjI9MU+A9oMXOesAWLSnqAaaJhj3qfQsU07Dr8OUwg==}
-    dev: false
-
   /@types/node/18.14.2:
     resolution: {integrity: sha512-1uEQxww3DaghA0RxqHx0O0ppVlo43pJhepY51OxuQIKHpjbnYLA7vcdwioNPzIqmC2u3I/dmylcqjlh0e7AyUA==}
     dev: true
@@ -961,19 +989,6 @@ packages:
 
   /convert-source-map/1.9.0:
     resolution: {integrity: sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==}
-
-  /cookie/0.4.2:
-    resolution: {integrity: sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA==}
-    engines: {node: '>= 0.6'}
-    dev: false
-
-  /cookies-next/2.1.1:
-    resolution: {integrity: sha512-AZGZPdL1hU3jCjN2UMJTGhLOYzNUN9Gm+v8BdptYIHUdwz397Et1p+sZRfvAl8pKnnmMdX2Pk9xDRKCGBum6GA==}
-    dependencies:
-      '@types/cookie': 0.4.1
-      '@types/node': 16.18.13
-      cookie: 0.4.2
-    dev: false
 
   /core-util-is/1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}

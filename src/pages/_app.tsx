@@ -1,32 +1,32 @@
-import NextApp, { AppContext, AppProps } from 'next/app'
+import NextApp from 'next/app'
 import Head from 'next/head'
-import { useState } from 'react'
-import {
-  ColorScheme,
-  ColorSchemeProvider,
-  MantineProvider
-} from '@mantine/core'
-import { createCtx } from '@reatom/core'
+import { useMemo } from 'react'
+import { createCtx } from '@reatom/framework'
 import { connectLogger } from '@reatom/framework'
 import { reatomContext as Reatom } from '@reatom/npm-react'
-import { getCookie, setCookie } from 'cookies-next'
+import { ColorSchemeProvider } from '@/components/ColorScheme/ColorSchemeProvider'
+import {
+  CookieProvider,
+  createCookieClient,
+  createCookieServer
+} from '@/libs/cookie'
+import { isServer } from '@/utils/is-server'
+import type { AppContext, AppProps } from 'next/app'
 
 const ctx = createCtx()
 connectLogger(ctx)
 
 interface Props extends AppProps {
-  colorScheme: ColorScheme
+  cookieContext: ReturnType<typeof createCookieServer>
 }
 
 export default function App(props: Props) {
   const { Component, pageProps } = props
-  const [colorScheme, setColorScheme] = useState<ColorScheme>(props.colorScheme)
 
-  const toggleColorScheme = (value?: ColorScheme): void => {
-    const nextColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark')
-    setColorScheme(nextColorScheme)
-    setCookie('color_scheme', nextColorScheme, { maxAge: 60 * 60 * 24 * 30 })
-  }
+  const cookieContext = useMemo(
+    () => (isServer() ? props.cookieContext : createCookieClient()),
+    [props.cookieContext]
+  )
 
   return (
     <>
@@ -38,29 +38,26 @@ export default function App(props: Props) {
         />
       </Head>
 
-      <ColorSchemeProvider
-        colorScheme={colorScheme}
-        toggleColorScheme={toggleColorScheme}
-      >
-        <MantineProvider
-          theme={{ colorScheme }}
-          withGlobalStyles
-          withNormalizeCSS
-        >
+      <CookieProvider value={cookieContext}>
+        <ColorSchemeProvider>
           <Reatom.Provider value={ctx}>
             <Component {...pageProps} />
           </Reatom.Provider>
-        </MantineProvider>
-      </ColorSchemeProvider>
+        </ColorSchemeProvider>
+      </CookieProvider>
     </>
   )
 }
 
 App.getInitialProps = async (appContext: AppContext) => {
-  const appProps = await NextApp.getInitialProps(appContext)
+  const pageProps = await NextApp.getInitialProps(appContext)
 
-  return {
-    ...appProps,
-    colorScheme: getCookie('color_scheme', appContext.ctx) ?? 'dark'
+  if (isServer()) {
+    const req = appContext.ctx.req!
+    const res = appContext.ctx.res!
+    const cookieContext = createCookieServer({ req, res })
+    return { pageProps, cookieContext }
   }
+
+  return { pageProps }
 }

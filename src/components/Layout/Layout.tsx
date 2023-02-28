@@ -1,5 +1,5 @@
 import { Box, Group } from '@mantine/core'
-import { ColorSchemeToggle } from '../ColorSchemeToggle'
+import { ColorSchemeToggle } from '../ColorScheme'
 import { LocaleToggle } from '../LocaleToggle'
 import { Navigation } from '../Navigation'
 import type { PropsWithChildren } from 'react'
