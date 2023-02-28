@@ -2,6 +2,7 @@ import { NextIntlProvider } from 'next-intl'
 import NextApp from 'next/app'
 import Head from 'next/head'
 import { useMemo } from 'react'
+import React from 'react'
 import { createCtx } from '@reatom/framework'
 import { connectLogger } from '@reatom/framework'
 import { reatomContext as Reatom } from '@reatom/npm-react'
@@ -13,6 +14,7 @@ import {
 } from '@/libs/cookie'
 import { isServer } from '@/utils/is-server'
 import type { AppContext, AppProps } from 'next/app'
+import { isDev } from '@/utils/is-dev'
 
 const reatomContext = createCtx()
 connectLogger(reatomContext)
@@ -23,6 +25,10 @@ interface PageProps {
 
 interface Props extends AppProps<PageProps> {
   cookieContext: ReturnType<typeof createCookieServer>
+}
+
+if (isDev()) {
+  React.useLayoutEffect = React.useEffect
 }
 
 export default function App(props: Props) {
