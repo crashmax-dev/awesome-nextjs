@@ -1,7 +1,4 @@
 {
   "loading": "Загрузка...",
-  "loaded": "Загружено за {lastRequestTime}ms",
-  "reset": "Сброс",
-  "previous": "Назад",
-  "next": "Вперед"
+  "loaded": "Загружено за {lastRequestTime}ms"
 }

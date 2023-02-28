@@ -7,11 +7,11 @@ import {
   reatomAsync,
   sample,
   withAbort,
-  withCache,
   withDataAtom,
+  withErrorAtom,
   withReducers
 } from '@reatom/framework'
-import fetcher from '@/libs/fetcher'
+import fetcher, { FetchError } from '@/libs/fetcher'
 
 interface Profile {
   id: number
@@ -19,20 +19,25 @@ interface Profile {
   username: string
 }
 
-export const fetchProfile = reatomAsync(
-  (ctx) =>
-    fetcher<Profile>(
-      `https://jsonplaceholder.typicode.com/users/${ctx.get(profileIdAtom)}`,
-      ctx.controller
-    ),
-  'fetchProfile'
-).pipe(withDataAtom(), withAbort())
+export const fetchProfile = reatomAsync(async (ctx) => {
+  await new Promise((resolve) => setTimeout(resolve, Math.random() * 1000))
+  return await fetcher<Profile>(
+    `https://jsonplaceholder.typicode.com/users/${ctx.get(profileIdAtom)}`,
+    ctx.controller
+  )
+}, 'fetchProfile').pipe(
+  withDataAtom(),
+  withAbort(),
+  withErrorAtom((ctx, error) => {
+    return error instanceof FetchError ? error : undefined
+  })
+)
 onConnect(fetchProfile.dataAtom, fetchProfile)
 
 export const profileIdAtom = atom(1, 'profileIdAtom').pipe(
   withReducers({
-    reset: () => 1,
     next: (state) => Math.min(10, state + 1),
+    // next: (state) => state + 1,
     prev: (state) => Math.max(1, state - 1)
   })
 )

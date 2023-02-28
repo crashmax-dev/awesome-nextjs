@@ -12,9 +12,9 @@ import {
   createCookieClient,
   createCookieServer
 } from '@/libs/cookie'
+import { isDev } from '@/utils/is-dev'
 import { isServer } from '@/utils/is-server'
 import type { AppContext, AppProps } from 'next/app'
-import { isDev } from '@/utils/is-dev'
 
 const reatomContext = createCtx()
 connectLogger(reatomContext)
