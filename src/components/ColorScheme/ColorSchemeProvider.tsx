@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import {
   ColorScheme,
   ColorSchemeProvider as MantineColorSchemeProvider,
@@ -24,6 +24,12 @@ export function ColorSchemeProvider({ children }: React.PropsWithChildren) {
     const newColorScheme = value ?? (colorScheme === 'dark' ? 'light' : 'dark')
     cookieController.set('color_scheme', newColorScheme, { maxAge: oneYear })
   }
+
+  useEffect(() => {
+    if (!cookie.color_scheme) {
+      setCookieColorScheme(prefersColorScheme)
+    }
+  }, [cookie.color_scheme, prefersColorScheme])
 
   return (
     <MantineColorSchemeProvider
