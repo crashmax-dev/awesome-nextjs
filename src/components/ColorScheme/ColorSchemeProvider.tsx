@@ -21,7 +21,8 @@ export function ColorSchemeProvider({ children }: React.PropsWithChildren) {
   }, [cookie.color_scheme, prefersColorScheme])
 
   const setCookieColorScheme = (value?: ColorScheme): void => {
-    const newColorScheme = value ?? (colorScheme === 'dark' ? 'light' : 'dark')
+    const newColorScheme =
+      value ?? (cookie.color_scheme === 'dark' ? 'light' : 'dark')
     cookieController.set('color_scheme', newColorScheme, { maxAge: oneYear })
   }
 
