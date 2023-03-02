@@ -12,8 +12,7 @@ import {
   createCookieClient,
   createCookieServer
 } from '@/libs/cookie'
-import { isDev } from '@/utils/is-dev'
-import { isServer } from '@/utils/is-server'
+import { isDev, isServer } from '@/utils/constants'
 import type { AppContext, AppProps } from 'next/app'
 
 const reatomContext = createCtx()

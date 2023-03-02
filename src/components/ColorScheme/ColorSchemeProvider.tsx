@@ -5,6 +5,7 @@ import {
   MantineProvider
 } from '@mantine/core'
 import { useCookie, useCookieController } from '@/libs/cookie'
+import { oneYear } from '@/utils/constants'
 
 export function ColorSchemeProvider({ children }: React.PropsWithChildren) {
   const cookie = useCookie()
@@ -25,20 +26,20 @@ export function ColorSchemeProvider({ children }: React.PropsWithChildren) {
       : 'dark'
   }
 
-  const toggleColorScheme = (value?: ColorScheme | boolean): void => {
+  const setCookieColorScheme = (value?: ColorScheme | boolean): void => {
     cookieController.set('color_scheme', getColorScheme(value ?? colorScheme), {
-      maxAge: 60 * 60 * 24 * 30
+      maxAge: oneYear
     })
   }
 
   useEffect(() => {
     const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)')
     if (!colorScheme) {
-      toggleColorScheme(prefersColorScheme.matches)
+      setCookieColorScheme(prefersColorScheme.matches)
     }
 
     const togglePrefersColorScheme = (event: MediaQueryListEvent): void => {
-      toggleColorScheme(event.matches)
+      setCookieColorScheme(event.matches)
     }
 
     prefersColorScheme.addEventListener('change', togglePrefersColorScheme)
@@ -50,7 +51,7 @@ export function ColorSchemeProvider({ children }: React.PropsWithChildren) {
   return (
     <MantineColorSchemeProvider
       colorScheme={colorScheme}
-      toggleColorScheme={toggleColorScheme}
+      toggleColorScheme={setCookieColorScheme}
     >
       <MantineProvider
         theme={{ colorScheme }}

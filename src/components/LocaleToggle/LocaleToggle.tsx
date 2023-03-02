@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { Text } from '@mantine/core'
 import { useCookie, useCookieController } from '@/libs/cookie'
+import { oneYear } from '@/utils/constants'
 import { i18n } from '../../../next.config'
 import { ActionButton } from '../ActionButton'
 
@@ -18,7 +19,9 @@ export function LocaleToggle() {
   }
 
   const setCookieLocale = (locale = DEFAULT_LOCALE) => {
-    cookieController.set('locale', locale)
+    cookieController.set('locale', locale, {
+      maxAge: oneYear
+    })
   }
 
   useEffect(() => {
