@@ -11,31 +11,29 @@ import { oneYear } from '@/utils/constants'
 export function ColorSchemeProvider({ children }: React.PropsWithChildren) {
   const cookie = useCookie()
   const cookieController = useCookieController()
-
   const prefersColorScheme = useColorScheme(undefined, {
     getInitialValueInEffect: true
   })
 
-  const colorScheme = useMemo(() => {
+  const colorScheme = useMemo<ColorScheme>(() => {
     return cookie.color_scheme ?? prefersColorScheme
   }, [cookie.color_scheme, prefersColorScheme])
 
-  const setCookieColorScheme = (value?: ColorScheme): void => {
-    const newColorScheme =
-      value ?? (cookie.color_scheme === 'dark' ? 'light' : 'dark')
+  const toggleColorScheme = (value?: ColorScheme): void => {
+    const newColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark')
     cookieController.set('color_scheme', newColorScheme, { maxAge: oneYear })
   }
 
   useEffect(() => {
     if (!cookie.color_scheme) {
-      setCookieColorScheme(prefersColorScheme)
+      toggleColorScheme(prefersColorScheme)
     }
   }, [cookie.color_scheme, prefersColorScheme])
 
   return (
     <MantineColorSchemeProvider
       colorScheme={colorScheme}
-      toggleColorScheme={setCookieColorScheme}
+      toggleColorScheme={toggleColorScheme}
     >
       <MantineProvider
         theme={{ colorScheme }}
