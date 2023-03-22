@@ -2,6 +2,7 @@
   "navigation": {
     "home": "Главная",
     "profile": "Профиль",
-    "counter": "Счетчик"
+    "counter": "Счетчик",
+    "posts": "Посты"
   }
 }

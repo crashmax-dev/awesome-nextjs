@@ -25,6 +25,12 @@ export function Navigation() {
       >
         {t('counter')}
       </Anchor>
+      <Anchor
+        component={Link}
+        href="/posts"
+      >
+        {t('posts')}
+      </Anchor>
     </>
   )
 }

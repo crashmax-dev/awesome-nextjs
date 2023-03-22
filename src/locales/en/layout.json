@@ -2,6 +2,7 @@
   "navigation": {
     "home": "Home",
     "profile": "Profile",
-    "counter": "Counter"
+    "counter": "Counter",
+    "posts": "Posts"
   }
 }
