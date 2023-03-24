@@ -8,7 +8,7 @@ import { createUseCookie } from '@cookie-baker/react'
 import type { CookieController, RealTimeCookie } from '@cookie-baker/core'
 import type { useCookie as useCookieType } from '@cookie-baker/react'
 import type { ColorScheme } from '@mantine/core'
-import type { IncomingMessage, ServerResponse } from 'http'
+import type { IncomingMessage, ServerResponse } from 'node:http'
 
 export type CookieModel = {
   color_scheme: ColorScheme

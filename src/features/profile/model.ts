@@ -11,7 +11,7 @@ import {
   withErrorAtom,
   withReducers
 } from '@reatom/framework'
-import fetcher, { FetchError } from '@/libs/fetcher'
+import { fetcher, FetchError } from '@/libs/fetcher'
 
 interface Profile {
   id: number

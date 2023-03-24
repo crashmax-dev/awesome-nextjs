@@ -1,4 +1,4 @@
-import fetcher from '@/libs/fetcher'
+import { fetcher } from '@/libs/fetcher'
 
 export interface Post {
   userId: number
@@ -10,7 +10,7 @@ export interface Post {
 class Posts {
   private readonly posts: Post[] = []
 
-  private async load() {
+  private async load(): Promise<void> {
     if (this.posts.length) return
     const posts = await fetcher<Post[]>(
       'https://jsonplaceholder.typicode.com/posts'

@@ -14,6 +14,7 @@ import {
 } from '@/libs/cookie'
 import { isDev, isServer } from '@/utils/constants'
 import type { AppContext, AppProps } from 'next/app'
+import { Layout } from '@/components/Layout'
 
 const reatomContext = createCtx()
 connectLogger(reatomContext)
@@ -52,7 +53,9 @@ export default function App(props: Props) {
         <Reatom.Provider value={reatomContext}>
           <NextIntlProvider messages={pageProps.i18n}>
             <ColorSchemeProvider>
-              <Component {...pageProps} />
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
             </ColorSchemeProvider>
           </NextIntlProvider>
         </Reatom.Provider>
