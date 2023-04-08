@@ -7,6 +7,7 @@ import {
   reatomAsync,
   sample,
   withAbort,
+  withCache,
   withDataAtom,
   withErrorAtom,
   withReducers
@@ -27,6 +28,7 @@ export const fetchProfile = reatomAsync(async (ctx) => {
   )
 }, 'fetchProfile').pipe(
   withDataAtom(),
+  // withCache(),
   withAbort(),
   withErrorAtom((ctx, error) => {
     return error instanceof FetchError ? error : undefined
