@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { Button, Grid } from '@mantine/core'
-import { CardWithButton } from '@/components/Cards'
+import { CardWithButton } from '@/components/Card'
 import { posts } from '../model/posts'
 import type { Post } from '../types'
 

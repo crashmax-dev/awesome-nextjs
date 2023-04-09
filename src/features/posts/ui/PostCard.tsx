@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Button } from '@mantine/core'
-import { CardWithButton } from '@/components/Cards'
+import { CardWithButton } from '@/components/Card'
 import { Post } from '../types'
 
 export interface PostProps {
