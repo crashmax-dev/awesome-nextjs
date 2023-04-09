@@ -6,6 +6,9 @@ const nextConfig = {
     defaultLocale: 'en',
     locales: ['en', 'ru'],
     localeDetection: false
+  },
+  experimental: {
+    swcMinify: true
   }
 }
 
