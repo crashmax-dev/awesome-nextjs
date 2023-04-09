@@ -7,6 +7,7 @@ import { createCtx } from '@reatom/framework'
 import { connectLogger } from '@reatom/framework'
 import { reatomContext as Reatom } from '@reatom/npm-react'
 import { ColorSchemeProvider } from '@/components/ColorScheme/ColorSchemeProvider'
+import { Layout } from '@/components/Layout'
 import {
   CookieProvider,
   createCookieClient,
@@ -14,7 +15,6 @@ import {
 } from '@/libs/cookie'
 import { isDev, isServer } from '@/utils/constants'
 import type { AppContext, AppProps } from 'next/app'
-import { Layout } from '@/components/Layout'
 
 const reatomContext = createCtx()
 connectLogger(reatomContext)
@@ -25,10 +25,6 @@ interface PageProps {
 
 interface Props extends AppProps<PageProps> {
   cookieContext: ReturnType<typeof createCookieServer>
-}
-
-if (isDev()) {
-  React.useLayoutEffect = React.useEffect
 }
 
 export default function App(props: Props) {

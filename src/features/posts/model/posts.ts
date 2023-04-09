@@ -1,11 +1,5 @@
 import { fetcher } from '@/libs/fetcher'
-
-export interface Post {
-  userId: number
-  id: number
-  title: string
-  body: string
-}
+import type { Post } from '../types'
 
 class Posts {
   private readonly posts: Post[] = []
