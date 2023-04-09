@@ -5,6 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "types": "tsc --noEmit",
     "format": "prettier --write '**/*.{js,ts,tsx,json}'"
   },
   "dependencies": {
