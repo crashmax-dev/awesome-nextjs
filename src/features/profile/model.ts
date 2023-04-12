@@ -1,5 +1,6 @@
 import {
   atom,
+  effect,
   mapPayload,
   mapState,
   onConnect,
@@ -9,10 +10,10 @@ import {
   withAbort,
   withCache,
   withDataAtom,
-  withErrorAtom,
-  withReducers
+  withReducers,
+  withStatusesAtom
 } from '@reatom/framework'
-import { fetcher, FetchError } from '@/libs/fetcher'
+import { fetcher } from '@/libs/fetcher'
 
 interface Profile {
   id: number
@@ -21,20 +22,28 @@ interface Profile {
 }
 
 export const fetchProfile = reatomAsync(async (ctx) => {
-  await new Promise((resolve) => setTimeout(resolve, Math.random() * 1000))
   return await fetcher<Profile>(
     `https://jsonplaceholder.typicode.com/users/${ctx.get(profileIdAtom)}`,
     ctx.controller
   )
 }, 'fetchProfile').pipe(
+  withAbort({ strategy: 'last-in-win' }),
+  withCache(),
   withDataAtom(),
-  // withCache(),
-  withAbort(),
-  withErrorAtom((ctx, error) => {
-    return error instanceof FetchError ? error : undefined
-  })
+  withStatusesAtom()
 )
 onConnect(fetchProfile.dataAtom, fetchProfile)
+
+fetchProfile.statusesAtom.pipe(
+  // select needed property
+  mapState((ctx, { isEverSettled }) => isEverSettled),
+  // react to the changes
+  effect((ctx, isEverSettled) => {
+    if (isEverSettled) console.log('The first loading occurs')
+  }),
+  // activate this chain
+  onUpdate
+)
 
 export const profileIdAtom = atom(1, 'profileIdAtom').pipe(
   withReducers({

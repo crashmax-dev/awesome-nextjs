@@ -7,9 +7,9 @@ export default function PostSlugRoute(props: PostProps) {
   return <PostCard post={props.post} />
 }
 
-export const getServerSideProps: GetServerSideProps<Partial<PostProps>> = async (
-  ctx
-) => {
+export const getServerSideProps: GetServerSideProps<
+  Partial<PostProps>
+> = async (ctx) => {
   const post = await posts.getBySlug(ctx.query.slug as string)
   const propsResult = {
     props: {
